@@ -11,6 +11,7 @@ import {
 } from "../../utils/helpers";
 import { useEffect } from "react";
 import UpdateOrder from "./UpdateOrder";
+import ChangeAdress from "./ChangeAdress";
 
 function Order() {
   const order = useLoaderData();
@@ -34,7 +35,7 @@ function Order() {
     estimatedDelivery,
     cart,
   } = order;
-
+  console.log(order);
   const deliveryIn = calcMinutesLeft(estimatedDelivery);
 
   return (
@@ -91,6 +92,7 @@ function Order() {
           To pay on delivery: {formatCurrency(orderPrice + priorityPrice)}
         </p>
       </div>
+      {/*<ChangeAdress order={order} />*/}
 
       {!priority && <UpdateOrder order={order} />}
     </div>
